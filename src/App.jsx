@@ -1,28 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-
-const Car = ({title}) => {
-  const [hasLiked, setHasLiked] = useState(false)
-
-  return(
-    <div className="card">
-      <h2>{title}</h2>
-
-      <button onClick={() => setHasLiked(!hasLiked)}>
-        {hasLiked ? 'Liked' : 'Like'}
-      </button>
-    </div>
-  )
-}
+import React, { useState } from 'react'
+import Search from './assets/components/Search'
 
 const App = () => {
-  return(
-    <div className="card-container"> 
-      <Car title="Avengers DoomsDay" rating={5} isCool={true} />
-      <Car title="Deol Band 2"/>
-      <Car title="Fast and Furious"/>
-    </div>
-    
+  const [searchTerm, setSearchTerm] = useState('');
+
+  return (
+    <main>
+      <div className="pattern"/>
+      
+      <div className="wrapper">
+        <header>
+          <img src="./hero.png" alt="Hero Banner" />
+          <h1> Find <span className="text-gradient">Movies</span> You'll 
+          Enjoy Without the Hassle</h1>
+        </header>
+
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      </div>
+    </main>
   )
 }
 
